@@ -18,9 +18,6 @@ export default class Navbar extends Component {
                     <Title>Restoran</Title>
                 </Body>
                 <Right>
-                    <Button transparent>
-                        <Icon type="FontAwesome" name="menu" />
-                    </Button>
                 </Right>
             </Header>
 

@@ -1,20 +1,26 @@
 import React, { Component } from 'react';
 import { Alert } from 'react-native'
 import { Container, Header, Content, Item, Input, Label, Button, Text, H1 } from 'native-base';
+import List from './List'
 
 export default class Login extends Component {
 
     state = {
         username: '',
         password: '',
+        successLogin: false,
     };
+
 
     onLogin() {
         const { username, password } = this.state;
         if (username != null && password != null) {
             if (username == 'test') {
                 if (password == 'test') {
-                    Alert.alert('Berhasil', 'Mantap');
+                    this.setState({
+                        successLogin: true,
+                    });
+                    Alert.alert('Berhasil', 'Anda berhasil login');
                 } else {
                     Alert.alert('Error', 'Nama pengguna / kata sandi salah');
                 }
@@ -26,7 +32,24 @@ export default class Login extends Component {
         }
     }
 
-    render() {
+    renderAction() {
+        if (this.state.successLogin) {
+            return (
+                <>
+                    <List />
+                </>
+            )
+        }
+
+        return (
+            <>
+                {this.renderLogin()}
+            </>
+        )
+
+    }
+
+    renderLogin() {
         return (
             <Container>
                 <Text style={{ marginTop: 60, textAlign: 'center' }}><H1>Login Aplikasi</H1></Text>
@@ -55,6 +78,14 @@ export default class Login extends Component {
                     </Button>
                 </Content>
             </Container>
+        )
+    }
+
+    render() {
+        return (
+            <>
+                {this.renderAction()}
+            </>
         )
     }
 

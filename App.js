@@ -1,8 +1,10 @@
+import 'react-native-gesture-handler';
 import React, { Component } from 'react';
 import { Container, Header, Content, Footer, FooterTab, Button, Icon, Form, Item, Input, Label, Textarea, Left, Body, Title, Right, Row } from 'native-base';
 import { StyleSheet, Text, View } from 'react-native';
 import Navbar from './src/screen/Navbar';
 import Login from './src/screen/Login';
+import { NavigationContainer } from '@react-navigation/native';
 
 
 export default class App extends Component {
@@ -11,6 +13,7 @@ export default class App extends Component {
       <Container>
         <Navbar />
         <Login />
+
       </Container>
     );
   }
